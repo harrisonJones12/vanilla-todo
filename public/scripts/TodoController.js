@@ -45,6 +45,8 @@ export function TodoController(el) {
     try {
       if (localStorage?.todo) {
         todoData = { ...todoData, ...JSON.parse(localStorage.todo) };
+        // console.log('localStorage?.todo', localStorage?.todo)
+        TodoLogic.moveUnCheckedTodoItems()
       }
     } catch (err) {
       // eslint-disable-next-line no-console

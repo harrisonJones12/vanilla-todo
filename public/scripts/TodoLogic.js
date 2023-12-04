@@ -30,6 +30,7 @@ export class TodoLogic {
   }
 
   static getTodoItemsForList(data, listId) {
+    console.log()
     return data.items
       .filter((item) => item.listId === listId)
       .sort((a, b) => a.index - b.index);
@@ -77,12 +78,15 @@ export class TodoLogic {
   }
 
   static moveTodoItem(data, input) {
+    // console.log('moveTodoItem is called data', data);
+    // console.log('moveTodoItem is called input', input);
     const itemToMove = data.items.find((item) => item.id === input.id);
 
     // Reinsert item at target list and index
     let list = data.items.filter(
       (item) => item.listId === input.listId && item.id !== input.id,
     );
+    // console.log('list', list);
     list.splice(input.index, 0, { ...itemToMove, listId: input.listId });
     list = TodoLogic.setIndexes(list);
 
@@ -91,11 +95,31 @@ export class TodoLogic {
       (item) => item.listId !== input.listId && item.id !== input.id,
     );
     items = [...items, ...list];
-
+    console.log('items', items)
     return {
       ...data,
       items,
     };
+  }
+
+  static moveUnCheckedTodoItems() {
+    // get local host data 
+    // check local host data to seee if the dates match the current date
+    // if they dont take the data that has past date set the listId to be the current data
+    const TodoData = JSON.parse(localStorage.todo)
+    const listOfTodoItems = TodoData.items;
+    console.log('localhost todo', listOfTodoItems)
+    const today = formatDateId(new Date());
+
+    listOfTodoItems.forEach((todoItem) => {
+      console.log('today', today)
+
+      if (todoItem.listId > today && todoItem.done === false) {
+        console.log(`this item "${todoItem.label}" should be moved`)
+      }
+    })
+
+
   }
 
   static deleteTodoItem(data, input) {

@@ -18,7 +18,7 @@ VT.TodoStore = function (el) {
         index = Math.max(index, item.index + 1);
       }
     });
-
+    console.log('listId', e.detail.listId)
     state.items.push({
       id: VT.uuid(),
       listId: e.detail.listId,
