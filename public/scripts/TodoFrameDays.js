@@ -11,7 +11,7 @@ export function TodoFrameDays(el) {
   let todoData = TodoLogic.initTodoData();
 
   el.innerHTML = /* html */ `
-    <nav class="leftcontrols">
+    <nav class="leftcontrols" tabindex="3"> 
       <p>
         <button class="app-button -circle -xl backward" title="Previous day">
           <i class="app-icon" data-id="chevron-left-24"></i>

@@ -9,7 +9,7 @@ VT.TodoFrameDays = function (el) {
   };
 
   el.innerHTML = [
-    '<nav class="leftcontrols">',
+    '<nav class="leftcontrols" tabindex="3">',
     '  <p><button class="app-button -circle -xl backward"><i class="app-icon" data-id="chevron-left-24"></i></button></p>',
     '  <p><button class="app-button fastbackward"><i class="app-icon -double" data-id="chevron-left-16"></i></i></button></p>',
     '  <p><button class="app-button home"><i class="app-icon" data-id="home-16"></i></button></p>',

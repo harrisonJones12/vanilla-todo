@@ -17,23 +17,23 @@ export function TodoApp(el) {
       <h1 class="title">
         VANILLA TODO
       </h1>
-      <p class="actions">
-        <label class="app-button import" title="Import data">
+      <div class="actions">
+        <label class="app-button import" tabindex="1" title="Import data">
           <i class="app-icon" data-id="upload-16"></i>
           <input type="file" name="importFile" hidden>
         </label>
-        <button class="app-button export" title="Export data">
+        <button class="app-button export" tabindex="2" title="Export data">
           <i class="app-icon" data-id="download-16"></i>
         </button>
-      </p>
+      </div>
     </header>
     <div class="todo-frame -days"></div>
-    <div class="app-collapsible">
-      <p class="bar">
+    <div class="app-collapsible" tabindex="4">
+      <span class="bar">
         <button class="app-button -circle toggle" title="Show/hide custom todo-lists">
           <i class="app-icon" data-id="chevron-up-24"></i>
         </button>
-      </p>
+      </span>
       <div class="body">
         <div class="todo-frame -custom"></div>
       </div>
